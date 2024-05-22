@@ -12,3 +12,4 @@ C:\Users\tarbo\Documents\CsharpProjects\PetProject\Starter\bin\Debug\net8.0\Star
 C:\Users\tarbo\Documents\CsharpProjects\PetProject\Starter\obj\Debug\net8.0\refint\Starter.dll
 C:\Users\tarbo\Documents\CsharpProjects\PetProject\Starter\obj\Debug\net8.0\Starter.genruntimeconfig.cache
 C:\Users\tarbo\Documents\CsharpProjects\PetProject\Starter\obj\Debug\net8.0\ref\Starter.dll
+C:\Users\tarbo\Documents\CsharpProjects\PetProject\Starter\obj\Debug\net8.0\Starter.sourcelink.json
