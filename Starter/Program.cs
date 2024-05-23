@@ -14,8 +14,6 @@ string menuSelection = "";
 // array used to store runtime data, there is no persisted data
 string[,] ourAnimals = new string[maxPets, 6];
 
-// TODO: Convert the if-elseif-else construct to a switch statement
-
 // create some initial ourAnimals array entries
 for (int i = 0; i < maxPets; i++)
 {
@@ -274,13 +272,85 @@ do
             break;
 
         case "3":
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            Console.WriteLine("Verifying animal ages and physical descriptions...");
+            
+            for(int i = 0; i < maxPets; i++){
+                string id = ourAnimals[i, 0];
+                if(id == "ID #: "){
+                    continue;
+                }
+
+                if(ourAnimals[i, 2] == null || ourAnimals[i, 2] == "Age: " || ourAnimals[i, 2] == "Age: ?"){
+                    do {
+                        Console.WriteLine($"Enter an age for ID #: {id}");
+                        readResult = Console.ReadLine();
+                        int x;
+                        if(readResult != null && int.TryParse(readResult, out x)) {
+                            ourAnimals[i, 2] = "Age: " + readResult;
+                        }
+                        else {
+                            ourAnimals[i, 2] = "Age: ";
+                        }
+                    } while(ourAnimals[i, 2] == "Age: ");
+                }
+
+                if(ourAnimals[i,4] == null || ourAnimals[i, 4] == "Physical description: " || ourAnimals[i, 4] == "Physical description: tbd"){
+                    do{
+                        Console.WriteLine($"Enter a physical description for ID #: {id} (size, color, gender, weight, housebroken)");
+                        readResult = Console.ReadLine();
+                        if(readResult != null && readResult.Length > 0 && readResult != "tbd"){
+                            ourAnimals[i, 4] ="Physical description: " + readResult;
+                        }
+                        else{
+                            ourAnimals[i, 4] = "Physical description: ";
+                        }
+                    } while(ourAnimals[i, 4] == "Physical description: ");
+                }
+                
+            }
+
+            Console.WriteLine("Age and physical description fields are complete for all of our friends.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "4":
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            Console.WriteLine("Verifying animal nicknames and personality descriptions...");
+            
+            for(int i = 0; i < maxPets; i++){
+                string id = ourAnimals[i, 0];
+                if(id == "ID #: "){
+                    continue;
+                }
+
+                if(ourAnimals[i,3] == null || ourAnimals[i, 3] == "Nickname: " || ourAnimals[i, 3] == "Nickname: tbd"){
+                    do{
+                        Console.WriteLine($"Enter a nickname for ID #: {id}");
+                        readResult = Console.ReadLine();
+                        if(readResult != null && readResult.Length > 0 && readResult != "tbd"){
+                            ourAnimals[i, 4] ="Nickname: " + readResult;
+                        }
+                        else{
+                            ourAnimals[i, 4] = "Nickname: ";
+                        }
+                    } while(ourAnimals[i, 4] == "Nickname: ");
+                }
+
+                if(ourAnimals[i,5] == null || ourAnimals[i, 5] == "Personality: " || ourAnimals[i, 5] == "Personality: tbd"){
+                    do{
+                        Console.WriteLine($"Enter a personality description for ID #: {id} (likes or dislikes, tricks, energy level)");
+                        readResult = Console.ReadLine();
+                        if(readResult != null && readResult.Length > 0 && readResult != "tbd"){
+                            ourAnimals[i, 4] ="Personality: " + readResult;
+                        }
+                        else{
+                            ourAnimals[i, 4] = "Personality: ";
+                        }
+                    } while(ourAnimals[i, 4] == "Personality: ");
+                }
+                
+            }
+            Console.WriteLine("Nickname and personality description fields are complete for all of our friends.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
